@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morni 旅遊網 - 探索世界的奇蹟</title>
+    <!-- ✨ 標題更新 -->
+    <title>主題行程 - Morni 旅遊網</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+    <!-- ✨ 沿用 index.html 的 CSS 樣式 -->
     <style>
-      /* --- 這是您的 CSS3 區域 --- */
+      html { scroll-behavior: smooth; }
       
-      /* ✨ 功能更新：加入這行，讓頁內滾動更平滑 */
-      html {
-        scroll-behavior: smooth;
-      }
+      /* ... (所有來自 index.html 的 CSS 樣式都應複製到這裡) ... */
 
       .hero-section {
         background-image: 
@@ -53,11 +52,17 @@
         font-size: 3rem;
         color: #0d6efd;
       }
+
+      .detail-img {
+        width: 100%;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      }
     </style>
 </head>
 <body class="d-flex flex-column min-vh-100"> 
   
-    <!-- ==== 1. 導覽列 (Navbar) ==== -->
+    <!-- ==== 1. 導覽列 (Navbar) - 完全沿用 ==== -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
       <div class="container">
         <a class="navbar-brand" href="index.html"><i class="bi bi-compass-fill"></i> Morni 旅遊網</a>
@@ -66,13 +71,10 @@
         </button>
         <div class="collapse navbar-collapse" id="mainNav">
           <ul class="navbar-nav ms-auto">
-            <!-- ✨ 功能更新 1 (頁內錨點)：href 從 "#" 改為 "#section-hot-destinations" -->
-            <li class="nav-item"><a class="nav-link active" href="#section-hot-destinations">熱門景點</a></li>
-            <!-- ✨ 連結更新：指向 tours.html -->
-            <li class="nav-item"><a class="nav-link" href="tours.html">主題行程</a></li>
-            <!-- ✨ 功能更新：連結到 about.html -->
+            <!-- ✨ 連結更新：確保連結路徑正確 -->
+            <li class="nav-item"><a class="nav-link" href="index.html#section-hot-destinations">熱門景點</a></li>
+            <li class="nav-item"><a class="nav-link active" href="tours.html">主題行程</a></li> <!-- ✨ 更新：將 "主題行程" 設為 active -->
             <li class="nav-item"><a class="nav-link" href="about.html">關於我們</a></li>
-            <!-- ✨ 功能更新 3 (Modal)：href 保持 "#"，並加入 data-bs-toggle 和 data-bs-target -->
             <li class="nav-item">
               <a class="nav-link btn btn-primary btn-sm text-white ms-lg-2" href="#" data-bs-toggle="modal" data-bs-target="#bookingModal">
                 立即預訂
@@ -83,17 +85,27 @@
       </div>
     </nav>
 
-    <header class="hero-section d-flex flex-column justify-content-center align-items-center">
-      <h1 class="display-3 fw-bold">探索世界的奇蹟</h1>
-      <p class="lead fs-3">規劃您的下一次完美冒險</p>
+    <!-- ==== 2. 主題行程頁首 ==== -->
+    <header class="bg-light py-5 text-center">
+      <div class="container">
+        <h1 class="display-4 fw-bold">探索所有行程</h1>
+        <p class="lead text-muted">從亞洲到歐洲，從經典到深度，總有適合您的旅程。</p>
+      </div>
     </header>
 
-    <!-- ✨ 功能更新 1 (頁內錨點)：在 <main> 標籤加入 id -->
-    <main id="section-hot-destinations" class="container my-5">
-      <h2 class="text-center mb-4 fw-bold">熱門旅遊地點</h2>
+    <!-- ==== 3. 旅遊方案列表 ==== -->
+    <main class="container my-5">
+      
+      <!-- 
+        我們將重用 "destination-card" 樣式
+        RWD 規則 (col-...)：
+        - 手機 (預設)：col-12
+        - 平板 (md)：col-md-6
+        - 桌機 (lg)：col-lg-4
+      -->
       <div class="row g-4">
         
-        <!-- 景點卡片 1 -->
+        <!-- 行程卡片 1：巴黎 (已在 index.html 出現過) -->
         <div class="col-12 col-md-6 col-lg-4">
           <div class="card destination-card h-100">
             <img src="https://cdn.jsdelivr.net/gh/a25167145/htmltest@main/france.jpg" class="card-img-top" alt="巴黎">
@@ -101,15 +113,14 @@
               <h5 class="card-title">巴黎，法國</h5>
               <p class="card-text">浪漫之都，探索艾菲爾鐵塔與羅浮宮的藝術氣息。</p>
             </div>
-            <div class="card-footer bg-white border-0 pb-3">
-              <!-- ✨ 功能更新 2 (新頁面)：href 從 "#" 改為 "paris-detail.html" -->
-              <!-- (這個連結在您實際建立 paris-detail.html 檔案前會是 404 錯誤) -->
+            <div class="card-footer bg-white border-0 pb-3 d-flex justify-content-between align-items-center">
               <a href="paris-detail.html" class="btn btn-outline-primary">查看詳情</a>
+              <span class="fw-bold text-dark fs-5">$1,200</span>
             </div>
           </div>
         </div>
 
-        <!-- 景點卡片 2 -->
+        <!-- 行程卡片 2：京都 (已在 index.html 出現過) -->
         <div class="col-12 col-md-6 col-lg-4">
           <div class="card destination-card h-100">
             <img src="https://cdn.jsdelivr.net/gh/a25167145/htmltest@main/japan.jpg" class="card-img-top" alt="京都">
@@ -117,14 +128,15 @@
               <h5 class="card-title">京都，日本</h5>
               <p class="card-text">古色古香的寺廟、竹林小徑，體驗日本傳統文化。</p>
             </div>
-            <div class="card-footer bg-white border-0 pb-3">
+            <div class="card-footer bg-white border-0 pb-3 d-flex justify-content-between align-items-center">
               <!-- ✨ 連結更新 -->
               <a href="kyoto-detail.html" class="btn btn-outline-primary">查看詳情</a>
+              <span class="fw-bold text-dark fs-5">$900</span>
             </div>
           </div>
         </div>
 
-        <!-- 景點卡片 3 -->
+        <!-- 行程卡片 3：紐約 (已在 index.html 出現過) -->
         <div class="col-12 col-md-6 col-lg-4">
           <div class="card destination-card h-100">
             <img src="https://cdn.jsdelivr.net/gh/a25167145/htmltest@main/new-york.jpg" class="card-img-top" alt="紐約">
@@ -132,20 +144,66 @@
               <h5 class="card-title">紐約，美國</h5>
               <p class="card-text">不夜城，感受時代廣場的繁華與自由女神的壯麗。</p>
             </div>
-            <div class="card-footer bg-white border-0 pb-3">
+            <div class="card-footer bg-white border-0 pb-3 d-flex justify-content-between align-items-center">
               <!-- ✨ 連結更新 -->
               <a href="new-york-detail.html" class="btn btn-outline-primary">查看詳情</a>
+              <span class="fw-bold text-dark fs-5">$1,500</span>
             </div>
           </div>
         </div>
         
-      </div> 
+        <!-- 行程卡片 4：全新 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card destination-card h-100">
+            <img src="https://cdn.jsdelivr.net/gh/a25167145/htmltest@main/rome.jpg" class="card-img-top" alt="羅馬">
+            <div class="card-body">
+              <h5 class="card-title">羅馬，義大利</h5>
+              <p class="card-text">永恆之城，漫步於古羅馬廣場與競技場的歷史遺跡中。</p>
+            </div>
+            <div class="card-footer bg-white border-0 pb-3 d-flex justify-content-between align-items-center">
+              <!-- ✨ 連結更新 -->
+              <a href="rome-detail.html" class="btn btn-outline-primary">查看詳情</a>
+              <span class="fw-bold text-dark fs-5">$1,300</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 行程卡片 5：全新 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card destination-card h-100">
+            <img src="https://cdn.jsdelivr.net/gh/a25167145/htmltest@main/sydeny.jpg" class="card-img-top" alt="雪梨">
+            <div class="card-body">
+              <h5 class="card-title">雪梨，澳洲</h5>
+              <p class="card-text">陽光、沙灘與標誌性的雪梨歌劇院，感受南半球的活力。</p>
+            </div>
+            <div class="card-footer bg-white border-0 pb-3 d-flex justify-content-between align-items-center">
+              <!-- ✨ 連結更新 -->
+              <a href="sydney-detail.html" class="btn btn-outline-primary">查看詳情</a>
+              <span class="fw-bold text-dark fs-5">$1,100</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 行程卡片 6：全新 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card destination-card h-100">
+            <img src="https://cdn.jsdelivr.net/gh/a25167145/htmltest@main/bangkok.jpg" class="card-img-top" alt="曼谷">
+            <div class="card-body">
+              <h5 class="card-title">曼谷，泰國</h5>
+              <p class="card-text">美食與文化的饗宴，體驗水上市場與金碧輝煌的寺廟。</p>
+            </div>
+            <div class="card-footer bg-white border-0 pb-3 d-flex justify-content-between align-items-center">
+              <!-- ✨ 連結更新 -->
+              <a href="bangkok-detail.html" class="btn btn-outline-primary">查看詳情</a>
+              <span class="fw-bold text-dark fs-5">$600</span>
+            </div>
+          </div>
+        </div>
+        
+      </div> <!-- .row 結束 -->
     </main>
 
-    <!-- ✨ 功能更新：此區塊已移至 about.html -->
-    <!-- <section id="section-features" class="bg-light py-5"> ... </section> -->
-
-
+    <!-- ==== 4. 頁尾 (Footer) - 完全沿用 ==== -->
     <footer class="bg-dark text-white p-4 mt-auto">
       <div class="container">
         <div class="d-md-flex justify-content-between align-items-center text-center text-md-start">
@@ -159,12 +217,9 @@
       </div>
     </footer>
 
-    <!-- ✨ 功能更新 3 (Modal)：加入 Modal 的 HTML 結構 -->
-    <!-- 
-      這段 HTML 放在 <body> 結束標籤前即可。
-      它預設是隱藏的，直到被 data-bs-toggle="modal" 的按鈕觸發。
-    -->
+    <!-- Modal (彈出視窗) - 完全沿用 -->
     <div class="modal fade" id="bookingModal" tabindex="-1">
+       <!-- ... (Modal 內容与 index.html 相同) ... -->
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
@@ -172,7 +227,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body">
-            <p>請留下您的資訊，我們的專員將盡快與您聯繫！</p>
+            <!-- ... (表單內容) ... -->
             <form>
               <div class="mb-3">
                 <label for="modal-name" class="form-label">您的姓名</label>
@@ -202,8 +257,6 @@
         </div>
       </div>
     </div>
-    <!-- Modal 結束 -->
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
