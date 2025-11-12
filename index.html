@@ -60,6 +60,8 @@
       /* 卡片圖片的 CSS3 效果 */
       .destination-card .card-img-top {
         transition: transform 0.3s ease;
+		aspect-ratio: 4 / 3; /* 設定一個統一的長寬比 (4:3 很適合旅遊照) */
+        object-fit: cover;   /* 圖片會自動裁切以填滿此比例，不變形 */
       }
 
       .destination-card:hover .card-img-top {
@@ -102,7 +104,7 @@
         
         <div class="col-12 col-md-6 col-lg-4">
           <div class="card destination-card h-100">
-            <img src="https://cdn.jsdelivr.net/gh/a25167145/htmltest@main/france.png" class="card-img-top" alt="巴黎">
+            <img src="https://cdn.jsdelivr.net/gh/a25167145/htmltest@main/france.jpg" class="card-img-top" alt="巴黎">
             <div class="card-body">
               <h5 class="card-title">巴黎，法國</h5>
               <p class="card-text">浪漫之都，探索艾菲爾鐵塔與羅浮宮的藝術氣息。</p>
@@ -115,7 +117,7 @@
 
         <div class="col-12 col-md-6 col-lg-4">
           <div class="card destination-card h-100">
-            <img src="https://cdn.jsdelivr.net/gh/a25167145/htmltest@main/japan.png" class="card-img-top" alt="京都">
+            <img src="https://cdn.jsdelivr.net/gh/a25167145/htmltest@main/japan.jpg" class="card-img-top" alt="京都">
             <div class="card-body">
               <h5 class="card-title">京都，日本</h5>
               <p class="card-text">古色古香的寺廟、竹林小徑，體驗日本傳統文化。</p>
@@ -128,7 +130,7 @@
 
         <div class="col-12 col-md-6 col-lg-4">
           <div class="card destination-card h-100">
-            <img src="https://cdn.jsdelivr.net/gh/a25167145/htmltest@main/new-york.png" class="card-img-top" alt="紐約">
+            <img src="https://cdn.jsdelivr.net/gh/a25167145/htmltest@main/new-york.jpg" class="card-img-top" alt="紐約">
             <div class="card-body">
               <h5 class="card-title">紐約，美國</h5>
               <p class="card-text">不夜城，感受時代廣場的繁華與自由女神的壯麗。</p>
